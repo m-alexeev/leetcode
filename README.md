@@ -1,3 +1,3 @@
 # Progress
 
-[Interactive Chart](chart/index.html)
+![Chart](chart.png)

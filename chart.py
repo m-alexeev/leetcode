@@ -4,13 +4,13 @@ from os import listdir
 from os.path import isfile, join
 from os import getcwd
 
-IGNORED_FOLDERS = [".git", "venv", "utils", "chart"]
-IGNORED_FILES = ["__init__.py"]
+OUTPUT = "chart.png"
+IGNORED_FOLDERS = [".git", "venv", "utils"]
+IGNORED_FILES = ["__init__.py", OUTPUT]
 
 
 PIE_COLORS = []
 DIR = getcwd()
-OUTPUT = "chart/index.html"
 
 
 def get_folders() -> List[str]:
@@ -36,7 +36,6 @@ def get_files_in_folders(folders: List[str]) -> Dict[str, List[str]]:
 def generate_chart(files: Dict[str, List[str]]) -> None:
     labels = list(files.keys())
     values = [len(values) for values in files.values()]
-    print(labels, values)
     chart = go.Figure(
         data=[
             go.Pie(
