@@ -1,5 +1,5 @@
 from typing import List, Optional
-from ListNode import ListNode, generateList
+from utils.ListNode import ListNode, generateList
 
 
 def rotateRight(head: Optional[ListNode], k: int) -> Optional[ListNode]:

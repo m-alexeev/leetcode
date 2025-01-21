@@ -1,5 +1,5 @@
 from typing import List, Optional
-from TreeNode import TreeNode
+from utils.TreeNode import TreeNode
 
 
 def getMidpoint(nums: List[int]) -> int:

@@ -1,5 +1,5 @@
 from typing import Optional
-from TreeNode import TreeNode, generateBT
+from utils.TreeNode import TreeNode, generateBT
 from collections import deque
 
 
