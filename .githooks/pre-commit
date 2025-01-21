@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e
+
+python chart.py
+
+git add chart.png
+
+echo "Updated chart.png"
+

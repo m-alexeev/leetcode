@@ -60,7 +60,6 @@ def generate_chart(files: Dict[str, List[str]]) -> None:
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
     )
-    # Testing hook
 
     chart.write_image(OUTPUT)
 
