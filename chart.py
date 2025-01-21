@@ -5,8 +5,8 @@ from os.path import isfile, join
 from os import getcwd
 
 OUTPUT = "chart.png"
-IGNORED_FOLDERS = [".git", "venv", "utils"]
-IGNORED_FILES = ["__init__.py", ".githooks", OUTPUT]
+IGNORED_FOLDERS = [".git", "venv", "utils", ".githooks"]
+IGNORED_FILES = ["__init__.py", OUTPUT]
 
 
 PIE_COLORS = []
