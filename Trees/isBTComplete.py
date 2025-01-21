@@ -1,7 +1,7 @@
 from collections import deque
 from typing import Optional
 
-from TreeNode import TreeNode, generateBT
+from utils.TreeNode import TreeNode, generateBT
 
 
 def isCompleteTree(root) -> bool:

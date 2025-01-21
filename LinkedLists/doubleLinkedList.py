@@ -1,5 +1,5 @@
 from typing import Optional
-from ListNode import ListNode, generateList
+from utils.ListNode import ListNode, generateList
 
 
 def double(head: Optional[ListNode]) -> Optional[ListNode]:
