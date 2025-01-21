@@ -53,12 +53,12 @@ def generate_chart(files: Dict[str, List[str]]) -> None:
                 text=f"Solved Questions: {sum(values)}",
                 x=0.5,
                 y=0.5,
-                font_size=48,
                 showarrow=False,
-                font=dict(color="black"),
             )
         ],
-        font=dict(family="Fira Code, monospace"),
+        font=dict(family="Fira Code, monospace", color="#dedede"),
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
     )
 
     chart.write_image(OUTPUT)
