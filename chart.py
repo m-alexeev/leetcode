@@ -61,7 +61,7 @@ def generate_chart(files: Dict[str, List[str]]) -> None:
         font=dict(family="Fira Code, monospace"),
     )
 
-    chart.write_html(OUTPUT)
+    chart.write_image(OUTPUT)
 
 
 if __name__ == "__main__":
