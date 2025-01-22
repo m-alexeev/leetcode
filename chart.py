@@ -28,8 +28,11 @@ def get_files_in_folders(folders: List[str]) -> Dict[str, List[str]]:
     files: Dict[str, List[str]] = {}
     for folder in folders:
         files[folder] = [
-            file for file in listdir(join(DIR, folder)) if file not in IGNORED_FILES
+            file
+            for file in listdir(join(DIR, folder))
+            if isfile(join(DIR, folder, file)) and file not in IGNORED_FILES
         ]
+    print(files)
     return files
 
 
