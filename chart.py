@@ -32,7 +32,6 @@ def get_files_in_folders(folders: List[str]) -> Dict[str, List[str]]:
             for file in listdir(join(DIR, folder))
             if isfile(join(DIR, folder, file)) and file not in IGNORED_FILES
         ]
-    print(files)
     return files
 
 
