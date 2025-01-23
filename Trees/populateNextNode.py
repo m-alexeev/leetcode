@@ -20,6 +20,3 @@ def populateNextNode(root: Optional[TreeNodeNext]) -> Optional[TreeNodeNext]:
                 q.append(cur.left)
             print(cur.next)
     return root
-
-
-print(populateNextNode(generateBT([1, 2, 3, 4, 5, None, 7])))
