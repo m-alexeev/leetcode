@@ -20,7 +20,6 @@ def rotate(matrix: List[List[int]]) -> None:
             print((row, col))
             swap([row, col], [col, row])
     printMatrix(matrix)
-    print()
     return
 
 
