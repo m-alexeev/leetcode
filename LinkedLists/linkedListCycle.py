@@ -1,5 +1,5 @@
 from typing import Optional
-from utils.ListNode import ListNode
+from utils.ListNode import ListNode, generateList
 
 
 def hasCycle(head: Optional[ListNode]) -> bool:
