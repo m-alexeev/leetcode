@@ -11,6 +11,12 @@ class TreeNode:
         return f"{self.val}, {self.left}, {self.right}"
 
 
+class TreeNodeNext(TreeNode):
+    def __init__(self, val=0, left=None, right=None, next=None) -> None:
+        TreeNode.__init__(self, val, left, right)
+        self.next = next
+
+
 def generateBT(items) -> Optional[TreeNode]:
 
     def inner(items, index) -> Optional[TreeNode]:
