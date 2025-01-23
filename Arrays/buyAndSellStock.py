@@ -1,21 +1,21 @@
 from typing import List
 
 
-def buyAndSellStockII(nums: List[int]) -> int:
-    if not nums:
+def buyAndSellStockII(prices: List[int]) -> int:
+    if not prices:
         return 0
     profit = 0
     l = r = 0
-    N = len(nums)
+    N = len(prices)
 
     while r < N - 1:
-        if nums[r] < nums[r + 1]:
+        if prices[r] < prices[r + 1]:
             r += 1
             if r == N - 1:
                 # sell on last day
-                profit += nums[r] - nums[l]
+                profit += prices[r] - prices[l]
         else:
-            profit += nums[r] - nums[l]
+            profit += prices[r] - prices[l]
             r += 1
             l = r
     return profit
