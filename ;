@@ -1,0 +1,9 @@
+from typing import List
+from utils.Trie import Trie, TrieNode
+
+
+def wordSearchII(board: List[List[str]], words: List[str]) -> List[str]:
+    # Create trie
+    trie = Trie()
+    for word in words:
+        trie.insertWord(word)

@@ -10,6 +10,12 @@ class ListNode:
         return f"{self.val}, {self.next}"
 
 
+class ListNodeRandom(ListNode):
+    def __init__(self, val=0, next=None, random=None) -> None:
+        ListNode.__init__(self, val, next)
+        self.random = None
+
+
 def generateList(l: List[int]) -> Optional[ListNode]:
     N = len(l)
     if N == 0:
