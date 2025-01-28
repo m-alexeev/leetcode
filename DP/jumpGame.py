@@ -10,6 +10,7 @@ def jumpGameII(nums: List[int]) -> int:
         if i == cur_end:
             jumps += 1
             cur_end = max_end
+        print(cur_end, max_end, jumps)
     return jumps
 
 
