@@ -16,6 +16,13 @@ class ListNodeRandom(ListNode):
         self.random = None
 
 
+class DoubleListNode(ListNode):
+    def __init__(self, val=0, key=0, next=None, prev=None) -> None:
+        ListNode.__init__(self, val, next)
+        self.prev = prev
+        self.key = key
+
+
 def generateList(l: List[int]) -> Optional[ListNode]:
     N = len(l)
     if N == 0:
