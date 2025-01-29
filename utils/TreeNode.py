@@ -1,4 +1,5 @@
 from typing import List, Optional
+from collections import deque
 
 
 class TreeNode:
@@ -18,20 +19,26 @@ class TreeNodeNext(TreeNode):
 
 
 def generateBT(items) -> Optional[TreeNode]:
+    if not items or items[0] is None:
+        return None  # No tree to generate
 
-    def inner(items, index) -> Optional[TreeNode]:
-        N = len(items)
-        if N == 0 or items[index] is None:
-            return None
+    root = TreeNode(items[0])  # Root of the tree
+    queue = deque([root])  # Queue to track nodes at each level
+    i = 1  # Start at the first child
 
-        root = TreeNode(items[index])
+    while queue and i < len(items):
+        node = queue.popleft()  # Process current node
 
-        l = 2 * index + 1
-        r = 2 * index + 2
-        if l < N:
-            root.left = inner(items, l)
-        if r < N:
-            root.right = inner(items, r)
-        return root
+        # Left child
+        if i < len(items) and items[i] is not None:
+            node.left = TreeNode(items[i])
+            queue.append(node.left)
+        i += 1
 
-    return inner(items, 0)
+        # Right child
+        if i < len(items) and items[i] is not None:
+            node.right = TreeNode(items[i])
+            queue.append(node.right)
+        i += 1
+
+    return root
