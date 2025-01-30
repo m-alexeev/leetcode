@@ -6,3 +6,4 @@ def printMatrix(matrix: List[List[int]]) -> None:
         for col in row:
             print(col, end="\t")
         print("")
+    print("")
