@@ -22,9 +22,30 @@ def threeSum(nums: List[int]):
     return list(list(x) for x in sums)
 
 
-# -1, 0, 1, 2, -1, -4
-# -4 -1 -1  0   1   2
-#
-print(threeSum([-1, 0, 1, 2, -1, -4]))
-print(threeSum([0, 1, 1]))
-print(threeSum([0, 0, 0]))
+def threeSumClosest(nums: List[int], target: int) -> int:
+    N = len(nums)
+    nums.sort()
+    closest = abs(target - sum(nums[:3]))
+    res = sum(nums[:3])
+    for i in range(N - 2):
+        l = i + 1
+        r = N - 1
+        while l < r:
+            total = nums[i] + nums[l] + nums[r]
+            if total == target:
+                return total
+            if abs(target - total) < abs(closest):
+                closest = abs(target - total)
+                res = total
+            if total < target:
+                l += 1
+            else:
+                r -= 1
+
+    return res
+
+
+print(threeSumClosest([-1, 2, 1, -4], 1))
+print(threeSumClosest([0, 0, 0], 1))
+print(threeSumClosest([1, 1, 1, 0], 100))
+print(threeSumClosest([4, 0, 5, -5, 3, 3, 0, -4, -5], -2))
