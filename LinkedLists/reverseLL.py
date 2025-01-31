@@ -13,10 +13,10 @@ def reverseList(head: Optional[ListNode]) -> Optional[ListNode]:
         next = cur.next
         cur.next = prev
         prev = cur
-        if next is not None:
-            cur = next
-        else:
+        if cur.next is None:
             return cur
+        else:
+            cur = next
 
 
 print(reverseList(generateList([1, 2, 3, 4, 5])))
