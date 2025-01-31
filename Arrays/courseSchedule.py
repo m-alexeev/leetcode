@@ -1,6 +1,33 @@
 from collections import deque
-import re
 from typing import List
+
+
+def courseSchedule(numCourses: int, prerequisites: List[List[int]]) -> bool:
+    if numCourses == 0:
+        return True
+
+    # create adjacency graph
+    adj_graph = {i: [] for i in range(numCourses)}
+    in_degress = {i: 0 for i in range(numCourses)}
+    for course, pre_req in prerequisites:
+        in_degress[course] += 1
+        adj_graph[pre_req].append(course)
+
+    # Look for cycle
+    q = deque([i for i in range(numCourses) if in_degress[i] == 0])
+    processedNodes = 0
+    while q:
+        cur = q.popleft()
+        processedNodes += 1
+        for neighbor in adj_graph[cur]:
+            in_degress[neighbor] -= 1
+            if in_degress[neighbor] == 0:
+                q.append(neighbor)
+
+    return processedNodes == numCourses
+
+
+print(courseSchedule(2, [[1, 0], [0, 1]]))
 
 
 def courseScheduleII(numCourses: int, prerequisites: List[List[int]]) -> List[int]:
@@ -54,7 +81,6 @@ def courseScheduleIV(
                 return True
         return False
 
-    print(map)
     res = []
     for course, target in queries:
         res.append(dfs(course, target, set([course])))
@@ -65,13 +91,13 @@ def courseScheduleIV(
 # print(courseScheduleII(1, []))
 # print(courseScheduleII(4, [[1, 0], [2, 0], [3, 1], [3, 2]]))
 
-print(courseScheduleIV(2, [[1, 0]], [[0, 1], [1, 0]]))
-print(courseScheduleIV(2, [], [[0, 1], [1, 0]]))
-print(courseScheduleIV(3, [[1, 2], [1, 0], [2, 0]], [[1, 0], [1, 2]]))
-print(
-    courseScheduleIV(
-        4,
-        [[2, 3], [2, 1], [0, 3], [0, 1]],
-        [[0, 1], [0, 3], [2, 3], [3, 0], [2, 0], [0, 2]],
-    )
-)
+# print(courseScheduleIV(2, [[1, 0]], [[0, 1], [1, 0]]))
+# print(courseScheduleIV(2, [], [[0, 1], [1, 0]]))
+# print(courseScheduleIV(3, [[1, 2], [1, 0], [2, 0]], [[1, 0], [1, 2]]))
+# print(
+#     courseScheduleIV(
+#         4,
+#         [[2, 3], [2, 1], [0, 3], [0, 1]],
+#         [[0, 1], [0, 3], [2, 3], [3, 0], [2, 0], [0, 2]],
+#     )
+# )
