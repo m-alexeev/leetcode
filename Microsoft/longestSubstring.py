@@ -1,3 +1,6 @@
+from collections import Counter
+
+
 def lengthOfLongestSubstring(s: str) -> int:
     N = len(s)
     if N == 0:
@@ -20,6 +23,31 @@ def lengthOfLongestSubstring(s: str) -> int:
     return maxS
 
 
-print(lengthOfLongestSubstring("abcabcbb"))
-print(lengthOfLongestSubstring("bbbbb"))
-print(lengthOfLongestSubstring("pwwkew"))
+# print(lengthOfLongestSubstring("abcabcbb"))
+# print(lengthOfLongestSubstring("bbbbb"))
+# print(lengthOfLongestSubstring("pwwkew"))
+#
+
+
+# Longest substring of length at least k
+def longestSubstring(s: str, k: int) -> int:
+    longest = 0
+    d = Counter(s)
+    ignore = [key for key, v in d.items() if v < k]
+    ignore = set(ignore)
+    cur = 0
+    for ch in s:
+        if ch in ignore:
+            longest = max(longest, cur)
+            cur = 0
+        else:
+            cur += 1
+    longest = max(longest, cur)
+    return longest
+
+
+print(longestSubstring("aaabb", 3))  # aaa
+print(longestSubstring("aaabbcccc", 3))  # cccc
+print(longestSubstring("ababbc", 2))  # ababb
+
+print(longestSubstring("ababacb", 3))  # 0

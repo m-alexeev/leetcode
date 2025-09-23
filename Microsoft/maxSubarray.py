@@ -1,17 +1,18 @@
 from typing import List
 
 
-def maxSubarray(nums: List[int]) -> int:
-    l, r, s, N = 0, 0, 0, len(nums)
-    if N == 0:
-        return 0
-    if N == 1:
-        return nums[0]
-    rs = 0
-    while r < N:
-        if rs + nums[r] > 0:
-            rs += nums[r]
-        else:
-            s = max(s, rs)
+def findMaxAverage(nums: List[int], k: int) -> float:
+    maxAvg = sum(nums[:k]) / k
+    cur = sum(nums[:k])
+    l = 0
+    for r in range(k, len(nums)):
+        cur -= nums[l]
+        cur += nums[r]
+        maxAvg = max(cur / k, maxAvg)
+        l += 1
 
-    return s
+    return maxAvg
+
+
+print(findMaxAverage([1, 12, -5, -6, 50, 3], 4))
+print(findMaxAverage([5], 1))
